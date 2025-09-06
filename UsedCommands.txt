@@ -1,0 +1,12 @@
+terraform init
+
+terraform workspace list
+terraform workspace show
+terraform workspace new development
+terraform workspace select development
+
+terraform validate
+terraform plan
+terraform plan -refresh=false
+terraform apply -auto-approve
+terraform destroy -auto-approve

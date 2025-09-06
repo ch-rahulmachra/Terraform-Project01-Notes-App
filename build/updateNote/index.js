@@ -1,0 +1,43 @@
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBDocumentClient, UpdateCommand } = require("@aws-sdk/lib-dynamodb");
+
+const client = new DynamoDBClient();
+const docClient = DynamoDBDocumentClient.from(client);
+
+exports.handler = async (event) => {
+    const body = JSON.parse(event.body || "{}");
+    const { noteId, title, content } = body;
+
+    if (!noteId) {
+        return { statusCode: 400, body: JSON.stringify({ error: "noteId is required" }) };
+    }
+
+    try {
+        const data = await docClient.send(new UpdateCommand({
+            TableName: process.env.DYNAMODB_TABLE,
+            Key: { noteId },
+            UpdateExpression: "SET title = :t, content = :c",
+            ExpressionAttributeValues: {
+                ":t": title || "Untitled",
+                ":c": content || ""
+            },
+            ReturnValues: "ALL_NEW"
+        }));
+
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE"
+            },
+            body: JSON.stringify(data.Attributes)
+        };
+    } catch (err) {
+        return {
+            statusCode: 500,
+            headers: { "Access-Control-Allow-Origin": "*" },
+            body: JSON.stringify({ error: err.message })
+        };
+    }
+};

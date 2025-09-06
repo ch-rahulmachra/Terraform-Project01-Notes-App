@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f4f4f9;
+}
+
+h1 {
+  color: #333;
+}
+
+#note-form {
+  margin-bottom: 20px;
+}
+
+#note-form input,
+#note-form textarea {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+#note-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#output {
+  margin-top: 20px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  word-break: break-word;
+}

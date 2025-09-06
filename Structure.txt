@@ -1,0 +1,56 @@
+.
+├─ build/
+│  ├─ createNote/
+│  │  ├─ index.js
+│  │  ├─ package.json
+│  │  └─ node_modules/
+│  ├─ updateNote/
+│  │  ├─ index.js
+│  │  ├─ package.json
+│  │  └─ node_modules/
+│  ├─ getNote/
+│  │  ├─ index.js
+│  │  ├─ package.json
+│  │  └─ node_modules/
+│  └─ deleteNote/
+│     ├─ index.js
+│     ├─ package.json
+│     └─ node_modules/
+├─ frontend/
+│  ├─ index.html
+│  ├─ app.js
+│  └─ style.css
+├─ modules/
+│  ├─ iam/
+│  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  └─ outputs.tf
+│  ├─ lambda/
+│  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  └─ outputs.tf
+│  ├─ dynamodb/
+│  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  └─ outputs.tf
+│  ├─ frontend/
+│  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  └─ outputs.tf
+│  └─ apiGateway/
+│  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  └─ outputs.tf
+├─ .terraform/
+├─ ScreenShots/
+├─ terraform.tfstate.backup
+├─ terraform.lock.hcl
+├─ backend.tf
+├─ envVar.tfvars
+├─ main.tf
+├─ providers.tf
+├─ variables.tf
+├─ Structure.txt
+├─ UsedCommands.txt
+├─ .gitignore
+└─ README.md
